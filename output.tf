@@ -36,3 +36,15 @@ output "vsphere_cpu" {
   #sensitive = true
   description = "resource"
 }
+
+output "vsphere_ram" {
+  value = vsphere_virtual_machine.vm.*.memory
+  #sensitive = true
+  description = "resource"
+}
+
+output "vsphere_name" {
+  value = vsphere_virtual_machine.vm.*.name
+  #sensitive = true
+  description = "resource"
+}

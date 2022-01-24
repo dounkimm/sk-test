@@ -17,6 +17,28 @@ type = string
 description = "vCenter/vSphere 서버 FQDN / IP"
 }
 
+variable "vsphere-unverified-ssl" {
+type = string
+description = "자체 서명 된 인증서를 사용하는 VMware vCenter (true / false)"
+}
+
+variable "vsphere-datacenter" {
+type = string
+description = "VMWare vSphere datacenter 이름"
+}
+
+variable "vsphere-cluster" {
+type = string
+description = "VMWare vSphere cluster 이름"
+default = ""
+}
+
+variable "vsphere-template-folder" {
+type = string
+description = "Template folder 이름"
+default = "template-folder"
+}
+
 #================================#
 # VMware vSphere virtual machine #
 #================================#

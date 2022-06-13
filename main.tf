@@ -74,10 +74,11 @@ network_interface {
 # }
 
 dynamic "disk" {
-  for_each = ${var.vm-disks}
+  #for_each = ${var.vm-disks}
+  for_each = { for disk in var.vm-disks : vm-disks.number => disk }
 
   content {
-   label       = "${var.vm-name}-disk-${key.value.id}"
+   label       = "${var.vm-name}-disk-${each.value.id}"
    unit_number = each.value.number
    size        = each.value.size
   }

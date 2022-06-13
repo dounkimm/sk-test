@@ -129,6 +129,7 @@ default = [
      number=3,
      size=10
    }
+]
 }
 
 #variable "vm-firmware" {

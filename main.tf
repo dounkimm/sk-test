@@ -68,11 +68,29 @@ network_interface {
   network_id = data.vsphere_network.network.id
 }
 
+# disk {
+#   label = "${var.vm-name}-disk"
+#   size  = var.vm-disk
+# }
+
 disk {
-  label = "${var.vm-name}-disk"
-  size  = var.vm-disk
+  count = var.vm-disk1==0 ? 0 : 1
+  label = "${var.vm-name}-disk1"
+  size  = var.vm-disk1
 }
 
+disk {
+  count = var.vm-disk2==0 ? 0 : 1
+  label = "${var.vm-name}-disk2"
+  size  = var.vm-disk2
+}
+
+disk {
+  count = var.vm-disk3==0 ? 0 : 1
+  label = "${var.vm-name}-disk3"
+  size  = var.vm-disk3
+}
+  
 clone {
   template_uuid = data.vsphere_virtual_machine.template.id
   customize {

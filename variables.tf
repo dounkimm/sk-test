@@ -76,33 +76,51 @@ description = "가상머신 Memory 사이즈"
 default = "2048"
 }
 
-# variable "vm-disk" {
+variable "vm-disk" {
+type = string
+description = "가상머신 Disk 사이즈"
+default = "30"
+}
+
+# variable "vm-disk1" {
 # type = string
 # description = "가상머신 Disk 사이즈"
-# default = "30"
+# default = "0"
 # }
 
-variable "vm-disk1" {
-type = string
-description = "가상머신 Disk 사이즈"
-default = "0"
-}
+# variable "vm-disk2" {
+# type = string
+# description = "가상머신 Disk 사이즈"
+# default = "0"
+# }
 
-variable "vm-disk2" {
-type = string
-description = "가상머신 Disk 사이즈"
-default = "0"
-}
-
-variable "vm-disk3" {
-type = string
-description = "가상머신 Disk 사이즈"
-default = "0"
-}
+# variable "vm-disk3" {
+# type = string
+# description = "가상머신 Disk 사이즈"
+# default = "0"
+# }
 
 variable "vm-name" {
 type = string
 description = "가상머신 이름"
+}
+
+# variable "disks" {
+#   type = list
+#   description = "가상머신 Disk"
+#   default = [
+#     disk1={ "id":1, "dev":"sdb", "sizeGB":35 },
+#     disk2={ "id":2, "dev":"sdc", "sizeGB":0  },
+#     disk3={ "id":3, "dev":"sdc", "sizeGB":0  }
+#   ]
+# }
+variable "vm-disks" {
+type = list
+default = [
+   {
+     number=0,
+     size=30
+   }
 }
 
 #variable "vm-firmware" {

@@ -120,6 +120,14 @@ default = [
    {
      number=0,
      size=30
+   },
+   {
+     number=2,
+     size=20
+   },
+   {
+     number=3,
+     size=10
    }
 }
 

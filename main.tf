@@ -74,19 +74,19 @@ network_interface {
 # }
 
 disk {
-  count = var.vm-disk1==0 ? 0 : 1
+  count = var.vm-disk1=="0" ? 0 : 1
   label = "${var.vm-name}-disk1"
   size  = var.vm-disk1
 }
 
 disk {
-  count = var.vm-disk2==0 ? 0 : 1
+  count = var.vm-disk2=="0" ? 0 : 1
   label = "${var.vm-name}-disk2"
   size  = var.vm-disk2
 }
 
 disk {
-  count = var.vm-disk3==0 ? 0 : 1
+  count = var.vm-disk3=="0" ? 0 : 1
   label = "${var.vm-name}-disk3"
   size  = var.vm-disk3
 }

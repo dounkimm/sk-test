@@ -115,18 +115,18 @@ description = "가상머신 이름"
 #   ]
 # }
 variable "vm-disks" {
-type = list
+type = list(map(number))
 default = [
    {
      number=0,
      size=30
    },
    {
-     number=2,
+     number=1,
      size=20
    },
    {
-     number=3,
+     number=2,
      size=10
    }
 ]

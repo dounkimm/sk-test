@@ -78,8 +78,8 @@ dynamic "disk" {
 
   content {
    label       = "${var.vm-name}-disk-${key.value.id}"
-   unit_number = key.value.number
-   size        = key.value.size
+   unit_number = each.value.number
+   size        = each.value.size
   }
 }
   

@@ -73,6 +73,7 @@ network_interface {
 #   size  = var.vm-disk
 # }
 
+# disk 테스트
 disk {
   count = var.vm-disk1=="0" ? 0 : 1
   label = "${var.vm-name}-disk1"

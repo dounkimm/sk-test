@@ -82,24 +82,6 @@ description = "가상머신 Disk 사이즈"
 default = "30"
 }
 
-# variable "vm-disk1" {
-# type = string
-# description = "가상머신 Disk 사이즈"
-# default = "0"
-# }
-
-# variable "vm-disk2" {
-# type = string
-# description = "가상머신 Disk 사이즈"
-# default = "0"
-# }
-
-# variable "vm-disk3" {
-# type = string
-# description = "가상머신 Disk 사이즈"
-# default = "0"
-# }
-
 variable "vm-name" {
 type = string
 description = "가상머신 이름"
@@ -114,22 +96,35 @@ description = "가상머신 이름"
 #     disk3={ "id":3, "dev":"sdc", "sizeGB":0  }
 #   ]
 # }
-variable "vm-disks" {
-type = list(map(number))
-default = [
-   {
-     number=0,
-     size=30
-   },
-   {
-     number=1,
-     size=20
-   },
-   {
-     number=2,
-     size=10
-   }
-]
+// variable "vm-disks" {
+// type = map(object({
+//   disk_num = number
+//   size = number
+// }))
+
+// default = {
+//    "disk1" = {
+//      disk_num = 0
+//      size = 30
+//    },
+//    "disk2" = {
+//      disk_num = 1
+//      size = 25
+//    },
+//    "disk3" = {
+//      disk_num = 2
+//      size = 10
+//    }
+// }
+// }
+
+variable "disk" {
+  type    = list
+  default = [
+    {
+      size   = 30,
+      number = 0
+    }]
 }
 
 #variable "vm-firmware" {

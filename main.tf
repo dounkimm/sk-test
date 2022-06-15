@@ -73,17 +73,31 @@ network_interface {
 #   size  = var.vm-disk
 # }
 
+// disk {
+//   for_each = var.vm-disks
+//   #for_each = { for disk in var.vm-disks : disk.name => disk }#
+//   #for_each = [for disk in var.vm-disks: disk]
+
+//   content {
+//    label       = "${var.vm-name}-${each.key}"
+//    unit_number = each.value.disk_num
+//    size        = each.value.size
+//   }
+// }
+  
 dynamic "disk" {
-  #for_each = ${var.vm-disks}
-  for_each = { for disk in ${var.vm-disks} : disk.number => disk }
+  for_each = [ for disk in var.disk: {
+    size   = disk.size
+    number = disk.number
+  }]
 
   content {
-   label       = "${var.vm-name}-disk-${each.value.id}"
-   unit_number = each.value.number
-   size        = each.value.size
+   label       = "disk-${disk.value.number}"
+   unit_number = disk.value.number
+   size        = disk.value.size
   }
 }
-  
+
 clone {
   template_uuid = data.vsphere_virtual_machine.template.id
   customize {
